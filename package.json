@@ -1,0 +1,29 @@
+{
+  "name": "docs-boilerplate",
+  "version": "1.0.0",
+  "description": "CLI for basic repository documentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlord/docs-boilerplate.git"
+  },
+  "keywords": [
+    "documentation",
+    "boilerplate",
+    "readme",
+    "contributing",
+    "license"
+  ],
+  "bin": {
+    "docsboil": "./bin"
+  },
+  "author": "Jessica Lord",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/jlord/docs-boilerplate/issues"
+  },
+  "homepage": "https://github.com/jlord/docs-boilerplate#readme"
+}
