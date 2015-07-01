@@ -4,5 +4,5 @@ var docsBoilerplate = require('./index.js')
 
 var options = require('minimist')(process.argv.slice(2))
 
-if (options._.length === 0) docsBoilerplate()
-else docsBoilerplate(options)
+if (options.c) docsBoilerplate(options.c)
+else docsBoilerplate()
