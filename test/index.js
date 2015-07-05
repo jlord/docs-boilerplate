@@ -1,4 +1,24 @@
 var test = require('tape')
+var docsBoilerplate = require('../index.js')
 
-// test that it writes correct default docs
-// test that it writes correct custom doc set
+// docsBoilerplate('ruby', './test/config.json')
+
+console.log('cwd', process.cwd())
+
+// test('Uses default docs', function (t) {
+
+// })
+
+// test('Write files in the correct location', function (t) {
+
+// })
+
+// test('Uses a custom configuration file', function (t) {
+
+// })
+
+// test('Uses a custom set of docs', function (t) {
+
+// })
+
+

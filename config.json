@@ -1,4 +1,5 @@
 {
   "default": ["default"],
-  "default_license": "BSD"
+  "default_license": "BSD",
+  "node": ["default"]
 }
