@@ -2,8 +2,10 @@ var test = require('tape')
 var docsBoilerplate = require('../index.js')
 
 // docsBoilerplate('ruby', './test/config.json')
+docsBoilerplate()
 
-console.log('cwd', process.cwd())
+
+// console.log('cwd', process.cwd())
 
 // test('Uses default docs', function (t) {
 
@@ -20,5 +22,3 @@ console.log('cwd', process.cwd())
 // test('Uses a custom set of docs', function (t) {
 
 // })
-
-
