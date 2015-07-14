@@ -1,5 +1,6 @@
 {
   "default": ["default"],
   "default_license": "BSD",
-  "node": ["default"]
+  "node": ["default"],
+  "ruby": ["default", "ruby/readme.md"]
 }
