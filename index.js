@@ -17,6 +17,10 @@ module.exports = function docsBoilerplate (option, customConfig) {
   else getFiles('default')
 }
 
+// a get files, a write a file
+// item in array could be dir or file
+
+
 function parseOptions (option) {
   console.log('parsing option')
   var docSet = config[option]
@@ -24,15 +28,8 @@ function parseOptions (option) {
   if (!docSet) return console.log('Could not find', option, 'in config.json')
   // it could be an array with a dir and a file string!
   docSet.forEach(function (doc) {
-    var filepath = path.join(__dirname, doc)
-    fs.stat(filepath, function (err, stats) {
-      if (stats.isFile()) writeDocs(doc)
-      else if (stats.isDirectory()) {
-        var array = []
-        array.push(doc)
-        writeDocs(array)
-      }
-    })
+    if (fileOrDir) writeDocs(doc)
+    else getFiles(doc)
   })
   // may not be a dir, may just be one filel listed.
   // check each thing in array to see if directory or file
@@ -41,17 +38,23 @@ function parseOptions (option) {
   // pass that onto writeDocs
 }
 
+function fileOrDir (location) {
+  var location = path.join(__dirname, doc)
+  fs.stat(location, function (err, stats) {
+    if (stats.isFile()) return true
+    else if (stats.isDirectory()) return false
+  })
+}
+
 // takes in a string for directory or array of strings for files
-function getFiles (docs) {
-  if (typeof docs === 'string') {
-    glob(path.resolve(__dirname, docs) + '/**', function (err, files) {
-      if (err) return console.log(err)
-      writeDocs(files)
+function getFiles (dir) {
+  glob(path.resolve(__dirname, dir) + '/**', function (err, files) {
+    if (err) return console.log(err)
+    files.forEach(function (file) {
+      if (fileOrDir) writeDocs(file)
+      else getFiles(file)
     })
-  } else if (typeof docs === 'array') {
-    console.log('array')
-    // writeDocs(docs)
-  }
+  })
 }
 
 function writeDocs (files) {
